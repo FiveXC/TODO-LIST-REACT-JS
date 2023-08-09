@@ -4,7 +4,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 function ComponenteTeste(props) {
 
 function excluir(index){
-    props.array.splice(index, 1)
+    props.array.splice(props.index, 1)
     localStorage.setItem('chave', JSON.stringify([...props.array]))
     props.setState( [...props.array])
 }
@@ -30,7 +30,7 @@ return (
 
           <button type = "checkbox" className="checkDom" onClick={()=>{marcar()}}>V</button>     
           <div type = "text" className={`inputDom ${props.item.checado ? 'riscar' : ''}`}>{props.item.nota}</div>
-          <button className="botaoDom"  onClick={()=>{excluir(props.index)}}><FontAwesomeIcon icon={faTrash}/></button>
+          <button className="botaoDom"  onClick={()=>{excluir()}}><FontAwesomeIcon icon={faTrash}/></button>
       </div>  
     }
 
